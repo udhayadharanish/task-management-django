@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="individual-task">
+        <div class="details">
+            <h1>{{task.name}}</h1>
+            <div>
+                <button><a href="{% url 'deleteTask' task.id %}">Delete</a></button>
+                <button><a href="{% url 'updateTask' task.id %}">Update</a></button>
+                {% if task.status == 'yet_to_start' %}
+                <button><a href="{% url 'completed' task.id %}">Completed</a></button>
+                {% endif %}
+                
+            </div>
+            
+        </div>
+        <div class="tags">
+
+            <div class="deadline">
+                <p>{{task.deadline}}</p>
+                <small>(deadline)</small>
+            </div>
+            
+            <div class="stress">
+                <p>{{task.stress}} %</p>
+                <small>(Stress Level)</small>
+            </div>
+
+            <div class="time">
+                <p>{{ task.time }} hr</p>
+                <small>(Estimated time)</small>
+            </div>
+            
+            <div class="status">
+                <p>{{task.status}}</p>
+                <small>(Status)</small>
+            </div>
+
+        </div>
+        <div class="block">
+           
+            <div class="description">
+                <h2>Description :</h2>
+                <br>
+                <p>{{task.description}}</p>
+            </div>
+            
+            <div class="notes">
+                <h2>Notes :</h2>
+                <br>
+                <li>{{task.notes}}</li>
+                <!-- <li>write code based on this </li>
+                <li>Easy way (2)</li>
+                <li>Get help from mentor</li> -->
+            </div>
+        </div>
+        <br><br>
+        
+        <!-- <div class="need">
+            <div class="resources">
+                <h2>Resources :</h2>
+                <br>
+                <button onclick="document.querySelector('embed').src = 'Images/Design.png'">Design.png</button>
+                <button onclick="document.querySelector('embed').src = 'Images/Certificate.pdf'">Cerificate.pdf</button>
+            </div>
+            <br>
+            <div class="frame">
+                <embed src="Images/Design.png" type="application/pdf" width="80%" height="600px" />
+            </div>
+        </div> -->
+        
+    </div>
+      
+{% endblock %}

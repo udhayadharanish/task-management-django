@@ -1,0 +1,143 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<div class="your-task">
+    <h2>YOUR TASKS</h2>
+    <form action="{% url 'tasks' %}">
+        <input type="text" name="q" placeholder="Search yout tasks...">
+        <select name="st" id="" >
+            <option value="" selected disabled >Status</option>
+            <option  value="yet_to_start">Yet to Start</option>
+            <option value="completed">Completed</option>
+        </select>
+        <button>Search</button>
+   </form>
+    <!-- <img src="Images/Design.png" alt="" height="100px" width="100px"> -->
+    <button class="add-task"><a href="{% url 'addTask' %}"><i class="fa-solid fa-plus" ></i>  Add Task</a></button>
+</div>
+
+      
+    
+
+<div class="task-container">
+     
+    <div class="task">
+
+        {% for task in tasks %}
+
+        <div class="div1">
+            <a href="{% url 'task' task.id %}" class="link"></a>
+            <h3>{{task}}</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">{{task.deadline}}</div>
+                <div class="status">{{task.status}}</div>
+                <div class="estd">{{task.time}}</div>  
+            </div>
+            <div class="options">
+                <div class="stress">Stress {{task.stress}}%</div>
+                <div class="resources">1+</div>
+                <div class="mark"><a href="{% url 'completed' task.id %}">mark as complete</a></div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div>
+
+
+        <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <h3>Task Name</h3>
+            <hr>
+            <div class="options">
+                <div class="deadline">deadline</div>
+                <div class="status">Not Completed</div>
+                <div class="estd">ested time</div>  
+            </div>
+            <div class="options">
+                <div class="stress">stress </div>
+                <div class="resources">count</div>
+                <div class="mark"><a href="#">mark as complete</a></div>
+            </div>
+        </div> -->
+
+
+    </div>
+
+    
+    
+</div>
+
+{% endblock  %}

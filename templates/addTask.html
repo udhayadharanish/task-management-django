@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="form-container">
+    <form action="" class="form" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="">Name</label>
+            <!-- <br> -->
+            {{form.name}}
+        </div>
+        <div>
+            <label for="">Description</label>
+            <!-- <br> -->
+            {{form.description}}
+        </div>
+        <div>
+            <label for="">Notes</label>
+            <!-- <br> -->
+            {{form.notes}}
+        </div>
+        <div>
+            <label for="">Estimeted Hours to Complete</label>
+            <!-- <br> -->
+            {{form.time}}
+        </div>
+        <div>
+            <label for="">Stress level</label>
+            <!-- <br> -->
+            <input type="range" id="vol" name="stress" min="0" max="100"><span id="level" ></span>
+        </div>
+        
+        <div>
+            <label for="">Status</label>
+            <!-- <br> -->
+            {{form.status}}
+        </div>
+        <div>
+            <label for="">Date</label>
+            <input type="date" name="deadlineDate" min='{{date}}' value="{{date}}"/>
+        </div>
+        <div>
+            <label for="">Time</label>
+            <input type="time" name="deadlineTime" value="{{time}}">
+        </div>
+        <input type="submit">
+    </form>
+
+</div>
+<script>
+    document.addEventListener('change',function(){
+        document.querySelector('#level').innerHTML = document.querySelector('#vol').value;
+    })
+</script>
+{% endblock %}

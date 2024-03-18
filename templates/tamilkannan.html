@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<script>
+   const onClick = () => {
+    const middleBlock = window.document.getElementsByClassName("middle-block")[0];
+    const blockState = middleBlock.classList[1];
+    
+    if (blockState === "open"){
+        middleBlock.classList.remove("open");
+        middleBlock.classList.add("close");
+    } else {
+        middleBlock.classList.remove("close");
+        middleBlock.classList.add("open");
+    }
+    }
+</script>
+<style>
+    .open-button {
+        position: absolute;
+        top: 250px;
+        right: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        z-index: 2;
+    }
+
+    .block-wrapper {
+        display: flex;
+        width: auto;
+        height: 500px;
+        position: relative;
+    }
+
+    .left-block {
+        flex: 1;
+        background-color: #0B9ED9;
+    }
+
+    .close {
+        flex: 0;
+    }
+
+    .open {
+        flex: 10;
+    }
+
+    .right-block {
+        flex: 1;
+        background-color: #024873;
+    }
+
+    div {
+        transition: all 0.5s;
+    }
+</style>
+<body>
+    
+    
+    <div class="block-wrapper">
+        <div class="open-button">
+            <button onclick="onClick()">👈 Trigger 👉</button>
+        </div>
+        <div class="middle-block open"></div>
+        <div class="right-block"></div>
+    </div>
+        
+    
+</body>
+</html>
